@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 200px;
+        border: 2px solid red;
+        border-radius: 10px;
+        position: relative;
+        perspective: 400px;
+    }
+    .box:hover .mainbox{
+        transform: rotateY(180deg);
+    }
+    .mainbox{
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        transform-style: preserve-3d;
+        transition: all 0.43s linear;
+    }
+    .frontbox{
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        backface-visibility: hidden;
+    }
+    .backbox{
+        width: 100%;
+        height: 100%;
+        background-color: blue;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateY(-180deg);
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="mainbox">
+            <div class="frontbox">Hello</div>
+            <div class="backbox">Bye</div>
+        </div>
+    </div>
+</body>
+</html>
